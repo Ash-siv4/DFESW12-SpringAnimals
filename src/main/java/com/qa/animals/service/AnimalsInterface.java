@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.qa.animals.domain.Animals;
 
-public interface AnimalsInterface {
+public interface AnimalsInterface<T> {
 	
 	//abstract methods for each of the CRUD
 	
@@ -12,8 +12,8 @@ public interface AnimalsInterface {
 	
 	List<Animals> read();
 	
-	Animals update(int id, Animals y);
+	Animals update(T id, Animals y);
 	
-	Animals delete(int id);
+	Animals delete(T id);
 
 }
