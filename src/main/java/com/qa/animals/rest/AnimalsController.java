@@ -16,47 +16,49 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.animals.domain.Animals;
+import com.qa.animals.service.AnimalsServiceDB;
 
 @RestController
 public class AnimalsController {
-
-	// Store info in, alternative to db:
-	private List<Animals> animals = new ArrayList<>();
-
+	
+	private AnimalsServiceDB service;//CDI - context & dependency injection
+	
+	public AnimalsController(AnimalsServiceDB service) {
+		super();
+		this.service = service;
+	}
+	
 	// CRUD
 
 	// CREATE
+
 	@PostMapping("/create")
 	public ResponseEntity<Animals> createAnimal(@RequestBody Animals a) {
-		a.setId((long) this.animals.indexOf(a));// added this to update id variable with array index
-		this.animals.add(a);
-		Animals created = this.animals.get(this.animals.size()-1);
-		return new ResponseEntity<Animals>(created, HttpStatus.CREATED);
+		return new ResponseEntity<Animals>(this.service.create(a), HttpStatus.CREATED);
 	}
 
 	// READ
 	@GetMapping("readAll")
 	public List<Animals> readAnimal() {
-		return this.animals;
+		return this.service.read();
 	}
 
 	// READ BY ID
 	@GetMapping("/readById/{id}")
 	public Animals getById(@PathVariable int id) {
-		return this.animals.get(id);
+		return this.service.readOne(id);
 	}
 
 	// UPDATE
 	@PutMapping("/update/{id}")
 	public Animals update(@PathVariable int id, @RequestBody Animals updated) {
-		this.animals.set(id, updated);
-		return this.animals.get(id);
+		return this.service.update(id, updated);
 	}
 
 	// DELETE
 	@DeleteMapping("/delete")
-	public void delete(@PathParam("id") int id) {
-		this.animals.remove(id);
+	public Animals delete(@PathParam("id") int id) {
+		return this.service.delete(id);
 	}
 
 }

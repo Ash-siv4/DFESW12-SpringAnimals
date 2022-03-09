@@ -1,9 +1,24 @@
 package com.qa.animals.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity // marking this class as a table for SQL
 public class Animals {
+	// create table animals(
+	// id int not null auto_increment,
+	// breed varchar(255),
+	// age int,
+	// gender varchar(255),
+	// primary key(id));
 
 	// variables - columns in the table
+	@Id //marks the field below as a primary key
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //auto increment
 	private Long id;
+	
 	private String breed;
 	private int age;
 	private String gender;
