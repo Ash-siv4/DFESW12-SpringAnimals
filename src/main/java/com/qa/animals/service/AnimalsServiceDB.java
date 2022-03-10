@@ -30,6 +30,11 @@ public class AnimalsServiceDB implements AnimalsInterface<Long> {
 		return this.repo.findAll();
 	}
 	
+//	public Animals readByGender(String gender) {
+//		Optional<Animals> opt = this.repo.findGender();
+//		return opt.orElse(null);
+//	}
+	
 	
 	public Animals readOne(Long id) {
 		// TODO Auto-generated method stub

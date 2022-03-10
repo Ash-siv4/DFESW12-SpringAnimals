@@ -1,0 +1,1 @@
+INSERT INTO `animals`(`age`,`breed`,`gender`) VALUES(4,'Mammal','f');

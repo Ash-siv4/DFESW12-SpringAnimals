@@ -1,6 +1,5 @@
 package com.qa.animals.rest;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.websocket.server.PathParam;
