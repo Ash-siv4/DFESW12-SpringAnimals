@@ -1,5 +1,7 @@
 package com.qa.animals.domain;
 
+import java.util.Objects;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,10 +17,10 @@ public class Animals {
 	// primary key(id));
 
 	// variables - columns in the table
-	@Id //marks the field below as a primary key
-	@GeneratedValue(strategy = GenerationType.IDENTITY) //auto increment
+	@Id // marks the field below as a primary key
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment
 	private Long id;
-	
+
 	private String breed;
 	private int age;
 	private String gender;
@@ -82,6 +84,24 @@ public class Animals {
 
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(age, breed, gender, id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Animals other = (Animals) obj;
+		return age == other.age && Objects.equals(breed, other.breed) && Objects.equals(gender, other.gender)
+				&& Objects.equals(id, other.id);
 	}
 
 }

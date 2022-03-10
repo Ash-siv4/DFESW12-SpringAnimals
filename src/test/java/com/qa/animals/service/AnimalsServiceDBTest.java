@@ -85,25 +85,25 @@ public class AnimalsServiceDBTest {
 	}
 	
 
-//	@Test
-//	void testUpdate() {
-//		// GIVEN - id, object
-//		Long id = 1L;
-//		// NEW ANIMAL OBJECT FOR INPUT TO UPDATE METHOD
-//		Animals toUpdate = new Animals("Mammal", 8, "F");
-//		// METHOD USES AN OPTIONAL VERSION OF THE ANIMAL OBJECT
-//		Optional<Animals> opt = Optional.of(returned);
-//		// UPDATED VERSION:
-//		Animals updated = new Animals(id, toUpdate.getBreed(), toUpdate.getAge(), toUpdate.getGender());
-//		// WHEN
-//		Mockito.when(this.rep.findById(id)).thenReturn(opt);
-//		Mockito.when(this.rep.save(updated)).thenReturn(updated);
-//		// THEN
-//		assertThat(this.serv.update(id, toUpdate)).isEqualTo(updated);
-//		// VERIFY
-//		Mockito.verify(this.rep, Mockito.times(1)).findById(id);
-//		Mockito.verify(this.rep, Mockito.times(1)).save(updated);
-//	}
+	@Test
+	void testUpdate() {
+		// GIVEN - id, object
+		Long id = 1L;
+		// NEW ANIMAL OBJECT FOR INPUT TO UPDATE METHOD
+		Animals toUpdate = new Animals("Mammal", 8, "F");
+		// METHOD USES AN OPTIONAL VERSION OF THE ANIMAL OBJECT
+		Optional<Animals> opt = Optional.of(returned);
+		// UPDATED VERSION:
+		Animals updated = new Animals(id, toUpdate.getBreed(), toUpdate.getAge(), toUpdate.getGender());
+		// WHEN
+		Mockito.when(this.rep.findById(id)).thenReturn(opt);
+		Mockito.when(this.rep.save(updated)).thenReturn(updated);
+		// THEN
+		assertThat(this.serv.update(id, toUpdate)).isEqualTo(updated);
+		// VERIFY
+		Mockito.verify(this.rep, Mockito.times(1)).findById(id);
+		Mockito.verify(this.rep, Mockito.times(1)).save(updated);
+	}
 
 	@Test
 	void testDelete() {
