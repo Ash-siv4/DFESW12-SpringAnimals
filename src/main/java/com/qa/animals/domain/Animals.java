@@ -86,6 +86,12 @@ public class Animals {
 		this.gender = gender;
 	}
 
+//	int x =10;
+//	String a = "hello";
+//	String b = new String("hello");
+	
+	
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(age, breed, gender, id);
