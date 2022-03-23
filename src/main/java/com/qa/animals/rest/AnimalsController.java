@@ -37,7 +37,7 @@ public class AnimalsController {
 	}
 
 	// READ
-	@GetMapping("readAll")
+	@GetMapping("/readAll")
 	public List<Animals> readAnimal() {
 		return this.service.read();
 	}
