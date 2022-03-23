@@ -1,0 +1,8 @@
+com\qa\animals\rest\TestController.class
+com\qa\animals\rest\AnimalsController.class
+com\qa\animals\service\AnimalsServiceList.class
+com\qa\animals\service\AnimalsServiceDB.class
+com\qa\animals\AnimalsApplication.class
+com\qa\animals\domain\Animals.class
+com\qa\animals\service\AnimalsInterface.class
+com\qa\animals\repo\AnimalsRepo.class

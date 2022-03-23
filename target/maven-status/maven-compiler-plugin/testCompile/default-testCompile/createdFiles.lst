@@ -1,0 +1,3 @@
+com\qa\animals\rest\AnimalsControllerTest.class
+com\qa\animals\AnimalsApplicationTests.class
+com\qa\animals\service\AnimalsServiceDBTest.class
